@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="splash" class="splash" aria-hidden="false">
+      <div class="splash-card">
+        <div class="splash-logo" aria-label="Logo da plataforma">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="splash-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff8a3d" />
+                <stop offset="1" stop-color="#ffcc57" />
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="30" fill="url(#splash-g)" />
+            <path d="M20 36c6 8 18 8 24 0" fill="none" stroke="#1d1d1d" stroke-width="4" stroke-linecap="round" />
+            <circle cx="24" cy="26" r="3" fill="#1d1d1d" />
+            <circle cx="40" cy="26" r="3" fill="#1d1d1d" />
+          </svg>
+          <div class="splash-title">Plataforma</div>
+        </div>
+        <p class="splash-text">Vire as cartas, encontre os pares e desbloqueie videos e mensagens.</p>
+        <button id="start-game" class="btn splash-button" type="button">Iniciar jogo</button>
+      </div>
+    </div>
+    <div id="finish" class="finish" aria-hidden="true">
+      <div class="finish-card">
+        <div class="finish-logo" aria-label="Logo da plataforma">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="finish-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff8a3d" />
+                <stop offset="1" stop-color="#ffcc57" />
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="30" fill="url(#finish-g)" />
+            <path d="M20 36c6 8 18 8 24 0" fill="none" stroke="#1d1d1d" stroke-width="4" stroke-linecap="round" />
+            <circle cx="24" cy="26" r="3" fill="#1d1d1d" />
+            <circle cx="40" cy="26" r="3" fill="#1d1d1d" />
+          </svg>
+          <div class="finish-title">Parabens!</div>
+        </div>
+        <p class="finish-text">Voce concluiu o jogo da memoria. Obrigado por jogar!</p>
+        <button id="restart-game" class="btn finish-button" type="button">Jogar novamente</button>
+      </div>
+    </div>
+    <header class="topbar">
+      <div class="logo" aria-label="Logo da plataforma">
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff8a3d" />
+              <stop offset="1" stop-color="#ffcc57" />
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#g)" />
+          <path d="M20 36c6 8 18 8 24 0" fill="none" stroke="#1d1d1d" stroke-width="4" stroke-linecap="round" />
+          <circle cx="24" cy="26" r="3" fill="#1d1d1d" />
+          <circle cx="40" cy="26" r="3" fill="#1d1d1d" />
+        </svg>
+        <div class="logo-text">Plataforma</div>
+      </div>
+      <div class="subtitle">Treine sua memória e descubra os conteúdos escondidos</div>
+    </header>
+
+    <main class="page">
+      <div class="board-wrap">
+        <section class="board-panel">
+          <div class="stats">
+            <div>Jogadas: <span id="moves">0</span></div>
+            <div>Pares: <span id="matches">0</span>/<span id="total">0</span></div>
+            <button id="reset" class="btn">Reiniciar</button>
+          </div>
+          <div id="board" class="board" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" data-close aria-label="Fechar">×</button>
+        <h2 id="modal-title">Par encontrado</h2>
+        <div id="modal-body" class="modal-body"></div>
+        <div class="modal-actions">
+          <button class="btn" data-close>Continuar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
